@@ -1,0 +1,18 @@
+@import 'tailwindcss' source(none);
+@source '../**/*.{js,ts,jsx,tsx}';
+
+@import 'tw-animate-css';
+
+@import './fonts.css';
+@import './theme.css';
+
+/* html stays black — prevents white flash before JS loads */
+html {
+  background-color: #000 !important;
+}
+
+/* body and #root must be transparent so AnimatedBackground (z-index:-1) shows through */
+body, #root {
+  background-color: transparent !important;
+  min-height: 100vh;
+}
