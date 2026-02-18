@@ -9,47 +9,39 @@ export default function About() {
   const { t } = useLanguage();
 
   const values = [
-    { icon: Heart, title: 'Passion', description: 'We love what we do and it shows in our work', color: 'from-red-500 to-pink-500' },
-    { icon: Zap, title: 'Innovation', description: 'Always exploring cutting-edge solutions', color: 'from-yellow-500 to-orange-500' },
-    { icon: Users, title: 'Client-Focused', description: 'Your success is our top priority', color: 'from-blue-500 to-cyan-500' },
-    { icon: Award, title: 'Excellence', description: 'Committed to delivering the best quality', color: 'from-purple-500 to-indigo-500' },
+    { icon: Heart, titleKey: 'valuePassion', descKey: 'valuePassionDesc', color: 'from-red-500 to-pink-500' },
+    { icon: Zap, titleKey: 'valueInnovation', descKey: 'valueInnovationDesc', color: 'from-yellow-500 to-orange-500' },
+    { icon: Users, titleKey: 'valueClientFocused', descKey: 'valueClientFocusedDesc', color: 'from-blue-500 to-cyan-500' },
+    { icon: Award, titleKey: 'valueExcellence', descKey: 'valueExcellenceDesc', color: 'from-purple-500 to-indigo-500' },
   ];
 
   const teamMembers = [
     {
       name: 'Dhanmeet Nijhawan',
       image: '/team/dhanmeet.png',
+      roleKey: 'dhanmeetRole',
       education: [
-        { degree: 'M.Sc. Computer Software Technology', school: 'Hochschule für Technik Stuttgart', year: '2020–2023' },
+        { degreeKey: 'dhanmeetEdu1Degree', schoolKey: 'dhanmeetEdu1School', yearKey: 'dhanmeetEdu1Year' },
       ],
       experience: [
-        { role: 'Co-Founder & Software Developer', company: 'iknowly', years: 'Jul 2023–Present' },
-        { role: 'Research Assistant', company: 'Hochschule für Technik Stuttgart', years: 'Jun–Nov 2021' },
-        { role: 'Software Developer', company: 'LocalPay', years: 'Sep 2018–Jul 2020' },
+        { roleKey: 'dhanmeetExp1Role', companyKey: 'dhanmeetExp1Company', yearsKey: 'dhanmeetExp1Years' },
+        { roleKey: 'dhanmeetExp2Role', companyKey: 'dhanmeetExp2Company', yearsKey: 'dhanmeetExp2Years' },
+        { roleKey: 'dhanmeetExp3Role', companyKey: 'dhanmeetExp3Company', yearsKey: 'dhanmeetExp3Years' },
       ],
-      achievements: [
-        'Developed 150+ projects across web & AI domains',
-        'Building scalable platforms & diving into Agentic AI',
-        'ML thesis: House price prediction with ensemble methods & PCA/LDA',
-        'Skills: React.js · Node.js · Python · Docker · Machine Learning · Scikit-learn',
-      ],
+      achievementKeys: ['dhanmeetAch1', 'dhanmeetAch2', 'dhanmeetAch3', 'dhanmeetAch4'],
     },
     {
       name: 'Taha Al-Taie',
       image: '/team/taha.png',
+      roleKey: 'tahaRole',
       education: [
-        { degree: 'MEng Smart City Solutions', school: 'Hochschule für Technik Stuttgart', year: '2019–2021' },
-        { degree: 'Bachelor of Architecture', school: 'University of Petra', year: '2011–2017' },
+        { degreeKey: 'tahaEdu1Degree', schoolKey: 'tahaEdu1School', yearKey: 'tahaEdu1Year' },
+        { degreeKey: 'tahaEdu2Degree', schoolKey: 'tahaEdu2School', yearKey: 'tahaEdu2Year' },
       ],
       experience: [
-        { role: 'Founder & CEO', company: 'iknowly (Self-employed)', years: 'Aug 2024–Present' },
+        { roleKey: 'tahaExp1Role', companyKey: 'tahaExp1Company', yearsKey: 'tahaExp1Years' },
       ],
-      achievements: [
-        'Bridging job seekers with top-tier companies across Germany',
-        'Building Germany\'s leading 1:1 mentorship platform',
-        'MEng thesis: Smart finance for sustainable infrastructure in developing countries',
-        'Skills: Leadership · Mentoring · Smart City · Urban Development · Strategy',
-      ],
+      achievementKeys: ['tahaAch1', 'tahaAch2', 'tahaAch3', 'tahaAch4'],
     },
   ];
 
@@ -57,14 +49,14 @@ export default function About() {
     <>
       <SEO
         title="About Us"
-        description="Learn about our digital agency in Iraq. We're passionate about helping Iraqi businesses thrive with cutting-edge web development, AI automation, and digital marketing."
-        keywords="digital agency Iraq, about us, web development team Iraq, Iraqi tech company, Baghdad digital services"
+        description="Learn about our digital agency. We're passionate about helping businesses thrive with cutting-edge web development, AI automation, and digital marketing."
+        keywords="digital agency, about us, web development team, tech company, digital services"
       />
-      
+
       <div className="min-h-screen text-white pt-32 pb-20 px-4">
         <div className="max-w-7xl mx-auto">
 
-          {/* Header — always visible, subtle slide in */}
+          {/* Header */}
           <div className="text-center mb-20">
             <motion.h1
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
@@ -86,7 +78,7 @@ export default function About() {
             </motion.p>
           </div>
 
-          {/* Mission / Vision — always visible */}
+          {/* Mission / Vision */}
           <div className="mb-32">
             <div className="grid md:grid-cols-2 gap-12">
               <motion.div
@@ -117,11 +109,11 @@ export default function About() {
           <div className="mb-32">
             <h2 className="text-3xl md:text-5xl font-bold text-center mb-4">
               <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-                Meet Our Team
+                {t('meetOurTeam')}
               </span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 text-center mb-16">
-              The talented people behind your digital success
+              {t('teamSubtitle')}
             </p>
 
             <div className="grid md:grid-cols-2 gap-12">
@@ -136,6 +128,8 @@ export default function About() {
                   className="relative group"
                 >
                   <div className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-lg border border-gray-700/50 hover:border-cyan-500/50 transition-all shadow-2xl">
+
+                    {/* Photo */}
                     <div className="mb-6">
                       <motion.div
                         whileHover={{ scale: 1.05 }}
@@ -146,52 +140,56 @@ export default function About() {
                       </motion.div>
                     </div>
 
+                    {/* Name & Role */}
                     <div className="text-center mb-6">
                       <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                         {member.name}
                       </h3>
-                      
+                      <p className="text-gray-400 text-base">{t(member.roleKey)}</p>
                     </div>
 
+                    {/* Education */}
                     <div className="mb-6">
                       <h4 className="text-xl font-semibold mb-4 flex items-center gap-2 text-cyan-400">
-                        <GraduationCap className="w-5 h-5" /> Education
+                        <GraduationCap className="w-5 h-5" /> {t('educationLabel')}
                       </h4>
                       <div className="space-y-3">
                         {member.education.map((edu, i) => (
                           <div key={i} className="pl-4 border-l-2 border-cyan-500/30">
-                            <p className="font-semibold text-gray-200">{edu.degree}</p>
-                            <p className="text-sm text-gray-400">{edu.school}</p>
-                            <p className="text-xs text-gray-500">{edu.year}</p>
+                            <p className="font-semibold text-gray-200">{t(edu.degreeKey)}</p>
+                            <p className="text-sm text-gray-400">{t(edu.schoolKey)}</p>
+                            <p className="text-xs text-gray-500">{t(edu.yearKey)}</p>
                           </div>
                         ))}
                       </div>
                     </div>
 
+                    {/* Experience */}
                     <div className="mb-6">
                       <h4 className="text-xl font-semibold mb-4 flex items-center gap-2 text-purple-400">
-                        <Briefcase className="w-5 h-5" /> Experience
+                        <Briefcase className="w-5 h-5" /> {t('experienceLabel')}
                       </h4>
                       <div className="space-y-3">
                         {member.experience.map((exp, i) => (
                           <div key={i} className="pl-4 border-l-2 border-purple-500/30">
-                            <p className="font-semibold text-gray-200">{exp.role}</p>
-                            <p className="text-sm text-gray-400">{exp.company}</p>
-                            <p className="text-xs text-gray-500">{exp.years}</p>
+                            <p className="font-semibold text-gray-200">{t(exp.roleKey)}</p>
+                            <p className="text-sm text-gray-400">{t(exp.companyKey)}</p>
+                            <p className="text-xs text-gray-500">{t(exp.yearsKey)}</p>
                           </div>
                         ))}
                       </div>
                     </div>
 
+                    {/* Achievements */}
                     <div>
                       <h4 className="text-xl font-semibold mb-4 flex items-center gap-2 text-yellow-400">
-                        <Trophy className="w-5 h-5" /> Achievements
+                        <Trophy className="w-5 h-5" /> {t('achievementsLabel')}
                       </h4>
                       <ul className="space-y-2">
-                        {member.achievements.map((achievement, i) => (
+                        {member.achievementKeys.map((key, i) => (
                           <li key={i} className="flex items-start gap-2 text-gray-300">
                             <span className="text-yellow-500 mt-1">★</span>
-                            <span>{achievement}</span>
+                            <span>{t(key)}</span>
                           </li>
                         ))}
                       </ul>
@@ -208,14 +206,13 @@ export default function About() {
           <div className="mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
               <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-rose-500 bg-clip-text text-transparent">
-                Our Values
+                {t('valuesTitle')}
               </span>
             </h2>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {values.map((value, index) => (
                 <motion.div
-                  key={value.title}
+                  key={value.titleKey}
                   initial={{ opacity: 0.4, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
@@ -230,8 +227,8 @@ export default function About() {
                   >
                     <value.icon className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold mb-3">{value.title}</h3>
-                  <p className="text-gray-400">{value.description}</p>
+                  <h3 className="text-2xl font-bold mb-3">{t(value.titleKey)}</h3>
+                  <p className="text-gray-400">{t(value.descKey)}</p>
                 </motion.div>
               ))}
             </div>
