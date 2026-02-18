@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { CheckCircle, Mail, MapPin, Phone, Send } from 'lucide-react';
 import { motion } from 'motion/react';
-import { useLanguage } from '../context/LanguageContext';
+import React, { useState } from 'react';
 import { SEO } from '../components/SEO';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -285,13 +285,6 @@ export default function Contact() {
                   className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full text-lg font-semibold shadow-lg shadow-cyan-500/50"
                 >
                   Schedule a Call
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-cyan-500 rounded-full text-lg font-semibold hover:bg-cyan-500/10 transition-colors"
-                >
-                  View Portfolio
                 </motion.button>
               </div>
             </div>
